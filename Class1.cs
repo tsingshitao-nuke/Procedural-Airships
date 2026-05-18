@@ -13,10 +13,12 @@ namespace ProceduralEnvelopeSync
         private HLEnvelopePartModule envelope;
         private ProceduralPart procPart;
         private float lastVolume = -1f;
+        private bool shouldBeEnabled = false;
 
         public override void OnStart(StartState state)
         {
-            if (HighLogic.LoadedSceneIsEditor || HighLogic.LoadedSceneIsFlight)
+            this.enabled = this.shouldBeEnabled = (HighLogic.LoadedSceneIsEditor || HighLogic.LoadedSceneIsFlight);
+            if (this.shouldBeEnabled)
             {
                 envelope = part.FindModuleImplementing<HLEnvelopePartModule>();
                 procPart = part.FindModuleImplementing<ProceduralPart>();
@@ -25,10 +27,16 @@ namespace ProceduralEnvelopeSync
 
         void Update()
         {
+            if (!this.shouldBeEnabled)
+            {
+                this.enabled = this.shouldBeEnabled; // 再次禁用，防止被其他模块强制启用
+                return;
+            }
+
             if (procPart == null || envelope == null)
                 return;
 
-            float currentVolume = procPart.Volume; // 这是 ProceduralPart 的公开属性，单位 m³
+            float currentVolume = procPart.Volume;
             if (!Mathf.Approximately(currentVolume, lastVolume))
             {
                 lastVolume = currentVolume;

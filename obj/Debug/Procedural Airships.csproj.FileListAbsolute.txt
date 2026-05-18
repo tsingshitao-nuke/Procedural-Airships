@@ -74,3 +74,74 @@ F:\KSP mod testing\ksp mods\Procedural Airships\bin\Debug\KSPAssets.XmlSerialize
 F:\KSP mod testing\ksp mods\Procedural Airships\obj\Debug\Procedur.53F4BA6D.Up2Date
 F:\KSP mod testing\ksp mods\Procedural Airships\obj\Debug\Procedural Airships.dll
 F:\KSP mod testing\ksp mods\Procedural Airships\obj\Debug\Procedural Airships.pdb
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Procedural Airships.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Procedural Airships.pdb
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.PhysicsModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UI.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.AnimationModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.AudioModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ParticleSystemModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\KSPTrackIR.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.IMGUIModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityWebRequestModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.TextRenderingModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\KSPAssets.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.AssetBundleModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UIModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Mono.Cecil.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.VehiclesModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Ionic.Zip.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.InputLegacyModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ImageConversionModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ScreenCaptureModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Unity.Analytics.StandardEvents.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityAnalyticsModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\Unity.Analytics.DataPrivacy.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.VRModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityWebRequestTextureModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityWebRequestAudioModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityWebRequestAssetBundleModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\KSPe.Light.HLAirshipsCore.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.DSPGraphModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.AndroidJNIModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.AccessibilityModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityConnectModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.AIModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.PerformanceReportingModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.Physics2DModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.SharedInternalsModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ClothModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ClusterInputModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ClusterRendererModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.CrashReportingModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.TilemapModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.TerrainModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.VFXModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.VideoModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.GridModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.SubsystemsModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.JSONSerializeModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.LocalizationModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UNETModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UnityWebRequestWWWModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.DirectorModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.GameCenterModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.SpriteMaskModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.StreamingModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.TerrainPhysicsModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.TextCoreModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.SpriteShapeModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.UIElementsModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.WindModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.ARModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.XRModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\UnityEngine.InputModule.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\TDx.TDxInput.dll
+D:\my doc\GitHub\Procedural Airships\bin\Debug\ProceduralParts.pdb
+D:\my doc\GitHub\Procedural Airships\bin\Debug\KSPAssets.XmlSerializers.dll
+D:\my doc\GitHub\Procedural Airships\obj\Debug\Procedural Airships.csproj.AssemblyReference.cache
+D:\my doc\GitHub\Procedural Airships\obj\Debug\Procedural Airships.csproj.CoreCompileInputs.cache
+D:\my doc\GitHub\Procedural Airships\obj\Debug\Procedur.53F4BA6D.Up2Date
+D:\my doc\GitHub\Procedural Airships\obj\Debug\Procedural Airships.dll
+D:\my doc\GitHub\Procedural Airships\obj\Debug\Procedural Airships.pdb

@@ -1,0 +1,97 @@
+PART
+{
+	// --- general parameters ---
+	name = proceduralEnvelopeCap
+	module = Part
+	author = tsingshitao
+
+	// --- asset parameters ---
+	MODEL
+	{
+		model = ProceduralParts/Parts/cylinderTank
+		scale = 1,1,1
+	}
+	scale = 1
+	rescaleFactor = 1
+
+	// --- node definitions ---
+	node_stack_bottom=0,-0.5,0,0,-1,0,1
+
+	// --- editor parameters ---
+	cost = 0
+	TechRequired = start
+	entryCost = 4000
+	category = Aero
+	subcategory = 0
+	title = Procedural Airship Envelope Cap
+	manufacturer = Greenstone Industries & Hooligan Labs
+	description = This rigid airship envelope is available in various different shapes and sizes.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,1,1,1,0
+
+	// --- standard part parameters ---
+	mass = 0.01
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.2
+	angularDrag = 2
+	crashTolerance = 12
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 2900
+
+
+	MODULE
+	{
+		name = ProceduralPart
+		textureSet=PlainWhite
+		shapeName=Smooth Cone
+		costPerkL = 0
+		TECHLIMIT {
+			
+			name = start
+			diameterMin = 0.5
+			diameterMax = Infinity
+			lengthMin = 0.5
+			lengthMax = Infinity
+			volumeMin = 0.001
+			volumeMax = Infinity
+		}
+	}
+	
+	MODULE 
+	{
+		name = ProceduralShapeBezierCone
+		displayName = Smooth Cone
+		
+		selectedShape = Round1
+		length = 2
+		topDiameter = 0
+		bottomDiameter = 3.75
+		
+		coneTopMode = Constant
+	}
+	
+    // ----- HL 气囊模块（初始值会被动态覆盖） -----
+    MODULE
+    {
+        name = HLEnvelopePartModule
+        envelopeVolume = 20.0
+        envelopeVolumeScale = 1.0
+        specificVolumeFractionEnvelope = 0.0
+        compressRate = 0.05
+        expandRate = 0.05
+        minAtmPressure = -0.01
+        makeStationarySpeedMax = 10
+        makeStationarySpeedClamp = 0.05
+        envelopeHasAnimation = false
+    }
+
+    // ----- 同步模块：将程序化体积映射到浮力 -----
+    MODULE
+    {
+        name = ProceduralEnvelopeVolumeModule
+        volumeScale = 20 
+    }
+}
