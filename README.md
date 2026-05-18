@@ -1,4 +1,5 @@
 # Procedural Airships
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/89bf9cbc-8d4f-4a7f-a0a5-c0419828ca14" />
 
 [![KSP version](https://img.shields.io/badge/KSP-1.12.x-blue.svg)](https://forum.kerbalspaceprogram.com/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
