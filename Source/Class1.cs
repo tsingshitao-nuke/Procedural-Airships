@@ -102,7 +102,7 @@ namespace ProceduralEnvelopeSync
                 SyncVolume();
         }
 
-        [KSPEvent(guiActive = true, guiActiveEditor = true, guiName = "#ProceduralAirship__7")]
+        [KSPEvent(guiActive = false, guiActiveEditor = true, guiName = "#ProceduralAirship__7")]
         public void ApplyScaleToAll()
         {
             if (!initialized) return;
