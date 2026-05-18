@@ -30,6 +30,8 @@ Bridges [Procedural Parts](https://github.com/KSP-RO/ProceduralParts) with [HL A
 | **Procedural Parts** | [GitHub](https://github.com/KSP-RO/ProceduralParts) |
 
 ---
+**注:可能与多体引力冲突**
+**PS:maybe conflict with Principia**
 
 ## 安装 / Installation
 
@@ -63,6 +65,7 @@ GameData/
 
 - 使用 HL Airships 的控制窗口调节浮力大小 / Use the HL Airships control window to adjust buoyancy
 - **Volume Scale** 在飞行中不可调，需要在 VAB/SPH 中预设 / Volume Scale is locked in flight
+
 
 ---
 
