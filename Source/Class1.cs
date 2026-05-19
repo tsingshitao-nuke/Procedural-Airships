@@ -6,6 +6,130 @@ using UnityEngine;
 
 namespace ProceduralEnvelopeSync
 {
+    public class ProceduralReactionWheelModule : PartModule, IPartMassModifier
+    {
+        [KSPField(guiActive = true, guiActiveEditor = true, guiName = "Torque Density",
+                  isPersistant = true, guiFormat = "F1")]
+        [UI_FloatRange(minValue = 0.1f, maxValue = 5f, stepIncrement = 0.1f, scene = UI_Scene.Editor)]
+        public float torqueDensity = 1f;
+
+        [KSPField(guiActive = true, guiActiveEditor = true, guiName = "Torque",
+                  guiFormat = "F1", guiUnits = " kN\u00B7m")]
+        public float torqueDisplay = 0f;
+
+        [KSPField(guiActive = true, guiActiveEditor = true, guiName = "Mass",
+                  guiFormat = "F2", guiUnits = " t")]
+        public float massDisplay = 0f;
+
+        private ModuleReactionWheel reactionWheel;
+        private ProceduralPart procPart;
+        private bool initialized = false;
+        private float moduleMass = 0f;
+
+        public override void OnStart(StartState state)
+        {
+            this.enabled = (HighLogic.LoadedSceneIsEditor || HighLogic.LoadedSceneIsFlight);
+            if (!this.enabled) return;
+
+            reactionWheel = part.FindModuleImplementing<ModuleReactionWheel>();
+            procPart = part.FindModuleImplementing<ProceduralPart>();
+
+            if (reactionWheel == null || procPart == null)
+            {
+                Debug.LogError("[ProceduralAirships] ProceduralReactionWheelModule: ModuleReactionWheel or ProceduralPart not found!");
+                this.enabled = false;
+                return;
+            }
+
+            initialized = true;
+            SyncTorque();
+
+            Fields[nameof(torqueDensity)].uiControlEditor.onFieldChanged += OnTorqueDensityChanged;
+
+            if (HighLogic.LoadedSceneIsEditor)
+                GameEvents.onEditorShipModified.Add(OnEditorShipModified);
+        }
+
+        public void OnDestroy()
+        {
+            GameEvents.onEditorShipModified.Remove(OnEditorShipModified);
+        }
+
+        public float GetModuleMass(float defaultMass, ModifierStagingSituation sit)
+        {
+            return moduleMass;
+        }
+
+        public ModifierChangeWhen GetModuleMassChangeWhen()
+        {
+            return ModifierChangeWhen.FIXED;
+        }
+
+        private void OnTorqueDensityChanged(BaseField field, object obj)
+        {
+            if (!initialized) return;
+            SyncTorque();
+        }
+
+        private void OnEditorShipModified(ShipConstruct ship)
+        {
+            if (!initialized || reactionWheel == null || procPart == null) return;
+            if (ship.Parts.Contains(part))
+                SyncTorque();
+        }
+
+        public void OnPartVolumeChanged(BaseEventDetails data)
+        {
+            if (!initialized || reactionWheel == null || procPart == null) return;
+            SyncTorque();
+        }
+
+        public override void OnFixedUpdate()
+        {
+            if (!initialized || !HighLogic.LoadedSceneIsFlight) return;
+            if (reactionWheel == null || procPart == null) return;
+
+            float volume = procPart.Volume;
+            float torque = torqueDensity * 13.5f * Mathf.Sqrt(volume);
+
+            reactionWheel.PitchTorque = torque;
+            reactionWheel.YawTorque = torque;
+            reactionWheel.RollTorque = torque;
+
+            torqueDisplay = torque;
+
+            if (reactionWheel.wheelState == ModuleReactionWheel.WheelState.Active)
+            {
+                double ecPerSecond = torque * 0.02;
+                part.RequestResource("ElectricCharge", ecPerSecond * TimeWarp.fixedDeltaTime);
+            }
+        }
+
+        private void SyncTorque()
+        {
+            float volume = procPart.Volume;
+            float torque = torqueDensity * 13.5f * Mathf.Sqrt(volume);
+
+            reactionWheel.PitchTorque = torque;
+            reactionWheel.YawTorque = torque;
+            reactionWheel.RollTorque = torque;
+
+            torqueDisplay = torque;
+
+            float partMass = torque * 0.01f;
+            moduleMass = partMass;
+            massDisplay = partMass;
+
+            if (part.Resources.Contains("ElectricCharge"))
+            {
+                float ecCapacity = volume * 300f;
+                part.Resources["ElectricCharge"].maxAmount = ecCapacity;
+                if (part.Resources["ElectricCharge"].amount > ecCapacity)
+                    part.Resources["ElectricCharge"].amount = ecCapacity;
+            }
+        }
+    }
+
     public class ProceduralEnvelopeVolumeModule : PartModule
     {
         [KSPField(guiActive = false, guiActiveEditor = true, guiName = "Volume Scale",
