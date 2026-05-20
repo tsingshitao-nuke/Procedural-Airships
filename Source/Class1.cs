@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using HLAirships;
 using KSP;
 using ProceduralParts;
@@ -28,6 +29,8 @@ namespace ProceduralEnvelopeSync
 
         public override void OnStart(StartState state)
         {
+            Debug.Log("[ProceduralAirships] RWModule OnStart state=" + state + " scene=" + HighLogic.LoadedScene);
+
             this.enabled = (HighLogic.LoadedSceneIsEditor || HighLogic.LoadedSceneIsFlight);
             if (!this.enabled) return;
 
@@ -42,6 +45,7 @@ namespace ProceduralEnvelopeSync
             }
 
             initialized = true;
+            Debug.Log("[ProceduralAirships] RWModule initialized OK, torqueDensity=" + torqueDensity);
             SyncTorque();
 
             Fields[nameof(torqueDensity)].uiControlEditor.onFieldChanged += OnTorqueDensityChanged;
@@ -84,8 +88,14 @@ namespace ProceduralEnvelopeSync
             SyncTorque();
         }
 
-        public override void OnFixedUpdate()
+        private int debugCounter = 0;
+
+        private void FixedUpdate()
         {
+            debugCounter++;
+            if (debugCounter <= 5)
+                Debug.Log("[ProceduralAirships] FixedUpdate #" + debugCounter + " scene=" + HighLogic.LoadedScene);
+
             if (!initialized || !HighLogic.LoadedSceneIsFlight) return;
             if (reactionWheel == null || procPart == null) return;
 
@@ -98,11 +108,24 @@ namespace ProceduralEnvelopeSync
 
             torqueDisplay = torque;
 
-            if (reactionWheel.wheelState == ModuleReactionWheel.WheelState.Active)
-            {
-                double ecPerSecond = torque * 0.02;
-                part.RequestResource("ElectricCharge", ecPerSecond * TimeWarp.fixedDeltaTime);
-            }
+            if (!reactionWheel.isEnabled) return;
+
+            bool sasOn = vessel.Autopilot.Enabled;
+            bool manualInput = Mathf.Abs(vessel.ctrlState.pitch) > 0.001f
+                            || Mathf.Abs(vessel.ctrlState.roll) > 0.001f
+                            || Mathf.Abs(vessel.ctrlState.yaw) > 0.001f;
+
+            if (!sasOn && !manualInput) return;
+
+            double ecPerSecond = torque * 0.02;
+            if (ecPerSecond <= 0) return;
+
+            double demand = ecPerSecond * Time.fixedDeltaTime;
+            part.RequestResource("ElectricCharge", demand, ResourceFlowMode.ALL_VESSEL);
+
+            if (Time.frameCount % 120 == 0)
+                Debug.Log(string.Format("[ProceduralAirships] torque={0:F2} EC/s={1:F4} active={2}",
+                    torque, ecPerSecond, sasOn ? "SAS" : "manual"));
         }
 
         private void SyncTorque()
